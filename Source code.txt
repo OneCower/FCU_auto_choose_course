@@ -1,0 +1,24 @@
+// ==UserScript==
+// @name         逢甲選課自動簽到
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://service113.sds.fcu.edu.tw/AddWithdraw.aspx?guid=63d1558b45c245a8a4c4aa3fc444dc8f&lang=zh-tw
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    	setTimeout(function() {
+		// IE
+		if(document.all) {
+			document.getElementById("ctl00_MainContent_TabContainer1_tabSelected_gvWishList_ctl02_btnAdd").click();
+		}
+		else {
+			var e = document.createEvent("MouseEvents");
+			e.initEvent("click", true, true);
+			document.getElementById("ctl00_MainContent_TabContainer1_tabSelected_gvWishList_ctl02_btnAdd").dispatchEvent(e);
+		}
+	}, 3000);
+})();
